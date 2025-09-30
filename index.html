@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastoral Juvenil Vocacional III Zona Pastoral Sexto Decanato</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#ff6f61;
+  --secondary:#ffb347;
+  --accent:#6a5acd;
+  --dark:#1a1a1a;
+  --light:#f5f5f5;
+  --maxw:1200px;
+}
+
+/* Animación fondo luces neón */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  position:relative;
+  background: #0a0a0a;
+}
+body::before{
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: url('logo1.png') center/30% no-repeat;
+  opacity:0.1;
+  z-index:-1;
+}
+
+/* Neon lights animation */
+body::after{
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: linear-gradient(90deg, rgba(255,0,150,0.1) 0%, rgba(0,255,255,0.1) 50%, rgba(255,255,0,0.1) 100%);
+  animation: neonMove 10s linear infinite;
+  z-index:-1;
+}
+@keyframes neonMove{
+  0%{background-position:0 0;}
+  100%{background-position:1000px 0;}
+}
+
+a{text-decoration:none;color:inherit;}
+.container{max-width:var(--maxw);margin:24px auto;padding:0 16px;}
+header{display:flex;align-items:center;justify-content:space-between;color:white;background:var(--accent);padding:12px 16px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.3);position: sticky; top:0; z-index:100;}
+.brand{display:flex;gap:12px;align-items:center;}
+.logo-img{width:56px;height:56px;border-radius:12px;object-fit:cover;}
+nav a{margin-left:16px;font-weight:600;transition:color 0.2s;color:white;}
+nav a:hover{color:var(--secondary);}
+h1,h2,h3{color:#fff;margin:8px 0;font-family:'Playfair Display', serif;}
+h3{font-size:1.1rem;}
+.card{background: rgba(20,20,20,0.85);border-radius:16px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,0.5);transition: transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform: translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.6);}
+.small{font-size:0.9rem;color:#ccc;}
+.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-align:center;cursor:pointer;border:none;background:var(--primary);color:white;transition:transform 0.2s ease,box-shadow 0.2s ease;}
+.btn:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,0.5);}
+.map-container{margin-top:16px;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.5);}
+iframe{width:100%;height:400px;border:0;}
+.poster-hero{margin-top:20px;display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:20px;position:relative;}
+.poster-hero img{width:45%;max-width:500px;border-radius:16px;transform: translateY(0);transition: transform 0.5s ease-out, box-shadow 0.3s;box-shadow:0 12px 40px rgba(0,0,0,0.6);}
+.poster-hero img:hover{transform: translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,0.7);}
+.floating{position:absolute;border-radius:50%;background:rgba(255,255,255,0.15);animation: float 8s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(20px);}}
+.countdown{font-size:2rem;font-weight:700;color:white;text-align:center;margin-top:12px;background:rgba(0,0,0,0.8);padding:12px;border-radius:12px;font-family:monospace;}
+.socials{display:flex;gap:16px;margin-top:12px;}
+.socials a{font-weight:700;color:white;background:var(--accent);padding:12px 16px;border-radius:12px;transition:0.2s;}
+.socials a:hover{background:var(--primary);}
+.news-periodico{font-family:'Playfair Display', serif; background:#111; padding:16px; border-left:6px solid var(--accent); box-shadow:0 8px 20px rgba(0,0,0,0.5); margin-top:12px;}
+.chatbot{position:fixed;width:80px;height:80px;bottom:20px;right:20px;z-index:200;cursor:pointer;animation: float 5s ease-in-out infinite;}
+.chat-window{position:fixed;bottom:110px;right:20px;width:300px;background:white;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.3);display:none;flex-direction:column;overflow:hidden;z-index:201;}
+.chat-header{background:var(--accent);color:white;padding:12px;font-weight:700;text-align:center;}
+.chat-body{padding:12px;max-height:200px;overflow-y:auto;}
+.chat-input{display:flex;border-top:1px solid #ccc;}
+.chat-input input{flex:1;border:none;padding:8px;}
+.chat-input button{padding:8px;border:none;background:var(--primary);color:white;cursor:pointer;}
+.fade-up{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
+.fade-up.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="brand">
+    <img src="logo1.png" alt="Logo Decanato" class="logo-img">
+    <div>
+      <div style="font-weight:700">Pastoral Juvenil Vocacional III Zona Pastoral Sexto Decanato</div>
+      <div class="small">6º Decanato · Arquidiocesis Primada de México</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#acerca">Acerca</a>
+    <a href="#parroquias">Parroquias</a>
+    <a href="#jojuvo">JOJUVO</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+<section class="poster-hero">
+  <img src="Poster3pmT.jpg" alt="Poster Oficial JOJUVO">
+  <img src="rifa.jpg" alt="Rifa" style="width:45%;max-width:500px;border-radius:16px;">
+</section>
+
+<div class="floating" style="width:80px;height:80px;top:150px;left:50px;"></div>
+<div class="floating" style="width:50px;height:50px;top:400px;left:200px;"></div>
+<div class="floating" style="width:100px;height:100px;top:600px;left:700px;"></div>
+
+<section class="card fade-up" id="jojuvo">
+<h2>JOJUVO — Evento Especial</h2>
+<p class="small">Los JOJUVOS son Jornadas Juveniles Vocacionales. Más info en <a href="https://www.jojuvo.com" target="_blank">jojuvo.com</a></p>
+<div class="countdown" id="countdown"></div>
+<p style="text-align:center;margin-top:12px;"><a href="https://forms.gle/bakFvfs8bkn7wEGQ6" class="btn">Inscríbete pronto, cupo limitado</a></p>
+</section>
+
+<section class="card fade-up" id="parroquias">
+<h2>Parroquias del Decanato</h2>
+<ul class="parroquias">
+<li>Nuestra Señora del Pueblito</li>
+<li>Nuestra Señora de la Consolación</li>
+<li>Nuestra Señora del Carmen</li>
+<li>San José Obrero y Corazón de María</li>
+<li>Rectoría de Nuestra Señora de Guadalupe</li>
+<li>Nuestra Señora del Perpetuo Socorro</li>
+<li>Sagrado Corazón de Jesús</li>
+<li>Sagrados Corazones</li>
+<li>San Isidro</li>
+<li>Santísima Trinidad</li>
+<li>Sagrada familia y Ntra. Sra. De Gpe.</li>
+</ul>
+
+<h3>Mapa del lugar del JOJUVO</h3>
+<div class="map-container">
+<iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.653955603541!2d-99.121234!3d19.414567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ffbfa1234567%3A0x8c2715ffb23f066!2sRector%C3%ADa%20de%20Nuestra%20Se%C3%B1ora%20de%20Guadalupe!5e0!3m2!1ses-419!2smx!4v1696070000000!5m2!1ses-419!2smx" 
+  allowfullscreen 
+  loading="lazy">
+</iframe>
+</div>
+</section>
+
+<section class="card fade-up" id="noticias">
+<h2>Noticias</h2>
+<div class="news-periodico">
+<h3>Canonización de San Carlo Acutis y Piergiorgio</h3>
+<p>¡Grandes noticias! Se han canonizado a San Carlo Acutis y Piergiorgio. Tendremos reliquias de ambos en nuestro próximo JOJUVO.</p>
+</div>
+</section>
+
+<section class="card fade-up" id="socials">
+<h2>Síguenos</h2>
+<div class="socials">
+<a href="https://www.instagram.com/" target="_blank">Instagram</a>
+<a href="https://www.facebook.com/" target="_blank">Facebook</a>
+</div>
+</section>
+
+<section class="card fade-up" id="contacto">
+<h2>Contacto</h2>
+<p class="small"><strong>Pastoral Juvenil</strong> — correo: pastoraljuvenilvocacional3z6d@gmail.com</p>
+<form id="contact-form">
+<label class="small">Nombre</label>
+<input name="nombre" required />
+<label class="small" style="margin-top:6px">Correo</label>
+<input name="email" type="email" required />
+<label class="small" style="margin-top:6px">Mensaje</label>
+<textarea name="mensaje" rows="4" required></textarea>
+<div style="margin-top:10px"><button class="btn" type="submit">Enviar</button></div>
+<div id="form-result" class="small" style="margin-top:8px"></div>
+</form>
+</section>
+
+</div>
+
+<!-- Chatbot LUCE -->
+<img src="luce.jpg" class="chatbot" id="luce" alt="Mascota LUCE">
+<div class="chat-window" id="chatWindow">
+<div class="chat-header">LUCE 🐾</div>
+<div class="chat-body" id="chatBody">
+<p>¡Hola! Soy LUCE, tu guía juvenil. ¿En qué puedo ayudarte?</p>
+</div>
+<div class="chat-input">
+<input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+<button id="sendChat">Enviar</button>
+</div>
+</div>
+
+<script>
+// Poster parallax
+const poster=document.querySelector('.poster-hero img');
+window.addEventListener('scroll',()=>{poster.style.transform=`translateY(${window.scrollY*0.3}px)`;});
+
+// Countdown
+function countdown(){
+  const endDate=new Date("2025-11-08T00:00:00").getTime();
+  const now=new Date().getTime();
+  const diff=endDate-now;
+  if(diff<0){document.getElementById('countdown').textContent="¡El JOJUVO comenzó!";return;}
+  const days=Math.floor(diff/(1000*60*60*24));
+  const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+  const seconds=Math.floor((diff%(1000*60))/1000);
+  document.getElementById('countdown').textContent=`Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(countdown,1000);
+countdown();
+
+// Contact form
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=this.nombre.value;
+  document.getElementById('form-result').textContent='Gracias '+name+'. Mensaje recibido (simulado).';
+  this.reset();
+});
+
+// Scroll animations
+const faders=document.querySelectorAll('.fade-up');
+const appearOptions={threshold:0.1};
+const appearOnScroll=new IntersectionObserver(function(entries,observer){
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    entry.target.classList.add('show');
+    observer.unobserve(entry.target);
+  });
+},appearOptions);
+faders.forEach(fader=>{appearOnScroll.observe(fader);});
+
+// Chatbot LUCE
+const luce=document.getElementById('luce');
+const chatWindow=document.getElementById('chatWindow');
+const chatBody=document.getElementById('chatBody');
+const chatInput=document.getElementById('chatInput');
+document.getElementById('sendChat').onclick=function(){
+  const msg=chatInput.value.trim();
+  if(msg===""){return;}
+  chatBody.innerHTML+=`<p><strong>Tú:</strong> ${msg}</p>`;
+  chatInput.value="";
+  let reply="Lo siento, no entendí eso. 😊";
+  if(msg.toLowerCase().includes("registro")) reply="Puedes registrarte para el JOJUVO en el botón de 'Inscríbete pronto, cupo limitado'.";
+  if(msg.toLowerCase().includes("jojuvo")) reply="El JOJUVO es una Jornada Juvenil Vocacional que será el 8 de noviembre 2025.";
+  chatBody.innerHTML+=`<p><strong>LUCE:</strong> ${reply}</p>`;
+  chatBody.scrollTop=chatBody.scrollHeight;
+};
+luce.onclick=function(){chatWindow.style.display=chatWindow.style.display==="flex"?"none":"flex";};
+
+// LUCE movimiento aleatorio
+setInterval(()=>{
+  luce.style.bottom=(20+Math.random()*30)+'px';
+  luce.style.right=(20+Math.random()*30)+'px';
+},4000);
+</script>
+</body>
+</html>
+
