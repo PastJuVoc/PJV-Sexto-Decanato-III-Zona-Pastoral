@@ -15,7 +15,6 @@
   --maxw:1200px;
 }
 
-/* Animación fondo luces neón */
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -34,8 +33,6 @@ body::before{
   opacity:0.1;
   z-index:-1;
 }
-
-/* Neon lights animation */
 body::after{
   content:"";
   position:fixed;
@@ -76,8 +73,8 @@ iframe{width:100%;height:400px;border:0;}
 .socials a{font-weight:700;color:white;background:var(--accent);padding:12px 16px;border-radius:12px;transition:0.2s;}
 .socials a:hover{background:var(--primary);}
 .news-periodico{font-family:'Playfair Display', serif; background:#111; padding:16px; border-left:6px solid var(--accent); box-shadow:0 8px 20px rgba(0,0,0,0.5); margin-top:12px;}
-.chatbot{position:fixed;width:80px;height:80px;bottom:20px;right:20px;z-index:200;cursor:pointer;animation: float 5s ease-in-out infinite;}
-.chat-window{position:fixed;bottom:110px;right:20px;width:300px;background:white;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.3);display:none;flex-direction:column;overflow:hidden;z-index:201;}
+.chatbot{position:fixed;width:80px;height:80px;bottom:20px;right:20px;z-index:200;cursor:pointer;display:none;}
+.chat-window{position:fixed;bottom:110px;right:20px;width:300px;background:white;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.3);display:flex;flex-direction:column;overflow:hidden;z-index:201;}
 .chat-header{background:var(--accent);color:white;padding:12px;font-weight:700;text-align:center;}
 .chat-body{padding:12px;max-height:200px;overflow-y:auto;}
 .chat-input{display:flex;border-top:1px solid #ccc;}
@@ -183,12 +180,11 @@ iframe{width:100%;height:400px;border:0;}
 
 </div>
 
-<!-- Chatbot LUCE -->
-<img src="luce.jpg" class="chatbot" id="luce" alt="Mascota LUCE">
+<!-- Chatbot Genérico -->
 <div class="chat-window" id="chatWindow">
-<div class="chat-header">LUCE 🐾</div>
+<div class="chat-header">Chat 🗨️</div>
 <div class="chat-body" id="chatBody">
-<p>¡Hola! Soy LUCE, tu guía juvenil. ¿En qué puedo ayudarte?</p>
+<p>¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte?</p>
 </div>
 <div class="chat-input">
 <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
@@ -236,102 +232,21 @@ const appearOnScroll=new IntersectionObserver(function(entries,observer){
 },appearOptions);
 faders.forEach(fader=>{appearOnScroll.observe(fader);});
 
-<!-- Chatbot -->
-<div id="chatbot">
-  <div id="chat-header">Chat con Pastoral Juvenil</div>
-  <div id="chat-body"></div>
-  <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." />
-</div>
-
-<style>
-#chatbot {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  border: 2px solid #ff4081;
-  border-radius: 10px;
-  background-color: #111;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  box-shadow: 0 0 15px rgba(255,64,129,0.7);
-}
-#chat-header {
-  padding: 10px;
-  font-weight: bold;
-  background-color: #222;
-  border-bottom: 1px solid #ff4081;
-  text-align: center;
-}
-#chat-body {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-}
-#chat-input {
-  padding: 8px;
-  border: none;
-  border-top: 1px solid #ff4081;
-  outline: none;
-  background-color: #111;
-  color: #fff;
-}
-.chat-message {
-  margin-bottom: 10px;
-}
-.chat-message.user { text-align: right; }
-.chat-message.bot { text-align: left; color: #ff4081; }
-</style>
-
-<script>
-const responses = {
-  "qué es el jojuvo": "El JOJUVO es un evento especial juvenil que celebra la fe y la comunión.
-  "cómo me registro": "Puedes registrarte aquí: https://forms.gle/bakFvfs8bkn7wEGQ6",
-  "contacto": "Para más info, escríbenos a pastoraljuvenilvocacional3z6d@gmail.com",
-  "horarios": "El evento será el 08 de noviembre de 2025."
+// Chatbot funcionalidad
+const chatWindow=document.getElementById('chatWindow');
+const chatBody=document.getElementById('chatBody');
+const chatInput=document.getElementById('chatInput');
+document.getElementById('sendChat').onclick=function(){
+  const msg=chatInput.value.trim();
+  if(msg===""){return;}
+  chatBody.innerHTML+=`<p><strong>Tú:</strong> ${msg}</p>`;
+  chatInput.value="";
+  let reply="Lo siento, no entendí eso. 😊";
+  if(msg.toLowerCase().includes("registro")) reply="Puedes registrarte para el JOJUVO en el botón de 'Inscríbete pronto, cupo limitado'.";
+  if(msg.toLowerCase().includes("jojuvo")) reply="El JOJUVO es una Jornada Juvenil Vocacional que será el 8 de noviembre 2025.";
+  chatBody.innerHTML+=`<p><strong>Asistente:</strong> ${reply}</p>`;
+  chatBody.scrollTop=chatBody.scrollHeight;
 };
-
-const chatBody = document.getElementById("chat-body");
-const chatInput = document.getElementById("chat-input");
-
-chatInput.addEventListener("keypress", function(e){
-  if(e.key === "Enter" && chatInput.value.trim() !== ""){
-    const userText = chatInput.value;
-    addMessage(userText, "user");
-    chatInput.value = "";
-    
-    const lower = userText.toLowerCase();
-    let found = false;
-    for(const key in responses){
-      if(lower.includes(key)){
-        addMessage(responses[key], "bot");
-        found = true;
-        break;
-      }
-    }
-    if(!found){
-      addMessage("Lo siento, no entendí tu pregunta. Intenta otra vez.", "bot");
-    }
-  }
-});
-
-function addMessage(text, type){
-  const msg = document.createElement("div");
-  msg.classList.add("chat-message", type);
-  msg.textContent = text;
-  chatBody.appendChild(msg);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-</script>
-
-// LUCE movimiento aleatorio
-setInterval(()=>{
-  luce.style.bottom=(20+Math.random()*30)+'px';
-  luce.style.right=(20+Math.random()*30)+'px';
-},4000);
 </script>
 </body>
 </html>
