@@ -148,48 +148,29 @@
 
     <!-- MAIN GRID -->
     <section class="grid" aria-label="Contenido principal">
-      <!-- LEFT: Calendar + Gallery (span 2 columns on wide) -->
       <div class="col-span-2">
+        <!-- Eventos -->
         <div class="card" id="eventos">
           <h2>Próximos eventos</h2>
-          <p class="small">Calendario con los eventos más importantes.</p>
           <div class="timeline" style="margin-top:12px">
-            <div class="event-card" role="article" aria-label="Retiro de jóvenes 26 de octubre 2025">
-              <div class="event-date">
-                <div style="font-size:0.95rem">26</div>
-                <div style="font-size:0.8rem;color:var(--muted)">Oct</div>
-              </div>
-              <div>
-                <div class="event-title">Retiro de Jóvenes</div>
-                <div class="small">Lugar: Casa de Retiros • Hora: 08:00 — 18:00</div>
-              </div>
+            <div class="event-card" role="article">
+              <div class="event-date"><div style="font-size:0.95rem">26</div><div style="font-size:0.8rem;color:var(--muted)">Oct</div></div>
+              <div><div class="event-title">Retiro de Jóvenes</div><div class="small">Lugar: Casa de Retiros • 08:00 — 18:00</div></div>
             </div>
-            <div class="event-card" role="article" aria-label="JOJUVO 8 de noviembre 2025">
-              <div class="event-date">
-                <div style="font-size:0.95rem">08</div>
-                <div style="font-size:0.8rem;color:var(--muted)">Nov</div>
-              </div>
-              <div>
-                <div class="event-title">JOJUVO — Jornada Juvenil Vocacional</div>
-                <div class="small">Calle 5 #447, Cuchilla Pantitlán • Inscripciones limitadas</div>
-              </div>
+            <div class="event-card" role="article">
+              <div class="event-date"><div style="font-size:0.95rem">08</div><div style="font-size:0.8rem;color:var(--muted)">Nov</div></div>
+              <div><div class="event-title">JOJUVO — Jornada Juvenil Vocacional</div><div class="small">Calle 5 #447, Cuchilla Pantitlán • Inscripciones limitadas</div></div>
             </div>
-            <div class="event-card" role="article" aria-label="Peregrinación a Cristo Rey próximamente">
-              <div class="event-date">
-                <div style="font-size:0.9rem">Próx</div>
-                <div style="font-size:0.7rem;color:var(--muted)">Peregr</div>
-              </div>
-              <div>
-                <div class="event-title">Peregrinación a Cristo Rey (Próximamente)</div>
-                <div class="small">Mantente atento a fechas y requisitos</div>
-              </div>
+            <div class="event-card" role="article">
+              <div class="event-date"><div style="font-size:0.9rem">Próx</div><div style="font-size:0.7rem;color:var(--muted)">Peregr</div></div>
+              <div><div class="event-title">Peregrinación a Cristo Rey (Próximamente)</div><div class="small">Mantente atento a fechas y requisitos</div></div>
             </div>
           </div>
         </div>
 
+        <!-- Galería -->
         <div class="card" style="margin-top:16px">
           <h2>Galería</h2>
-          <p class="small">Fotos de eventos — haz clic para ampliar. Por el momento, conservamos JPG/PNG.</p>
           <div class="gallery" id="gallery" style="margin-top:12px">
             <img src="galeria1.jpg" alt="Foto evento 1" loading="lazy">
             <img src="galeria2.jpg" alt="Foto evento 2" loading="lazy">
@@ -199,28 +180,49 @@
             <img src="galeria6.jpg" alt="Foto evento 6" loading="lazy">
           </div>
         </div>
+
+        <!-- Oraciones -->
+        <div class="card" style="margin-top:16px" id="oraciones">
+          <h2>Deja tus oraciones</h2>
+          <div class="prayer-list" id="prayerList"></div>
+          <textarea id="newPrayer" placeholder="Escribe tu oración..." style="width:100%;margin-top:6px;padding:6px;border-radius:6px;border:1px solid #444;background:#111;color:#fff;"></textarea>
+          <button class="btn" style="margin-top:6px;" onclick="addPrayer()">Agregar oración</button>
+        </div>
       </div>
 
-      <!-- RIGHT: Resources / Map -->
-      <aside class="card" id="recursos" aria-labelledby="recursos-title">
-        <h2 id="recursos-title">Recursos & Mapa</h2>
-        <p class="small">Materiales para líderes y contacto.</p>
+      <aside class="card">
+        <!-- Recursos -->
+        <h2 id="recursos">Recursos & Mapa</h2>
+        <ul style="list-style:none;padding:0;margin-top:6px">
+          <li><a href="manual_lider.pdf" class="btn">Manual de Líder</a></li>
+          <li style="margin-top:6px"><a href="oraciones.pdf" class="btn">Oraciones Juveniles</a></li>
+        </ul>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="200" style="border:0;border-radius:8px;margin-top:12px;" allowfullscreen="" loading="lazy"></iframe>
 
-        <div style="margin-top:10px">
-          <h3 style="margin:6px 0">Descargas</h3>
-          <ul style="list-style:none;padding:0;margin:0">
-            <li><a href="manual_lider.pdf" class="btn">Manual de Líder</a></li>
-            <li style="margin-top:6px"><a href="oraciones.pdf" class="btn">Oraciones Juveniles</a></li>
-          </ul>
-        </div>
-
-        <div style="margin-top:16px">
-          <h3 style="margin:6px 0">Ubicación</h3>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="200" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Vocación -->
+        <div class="accordion" style="margin-top:16px" id="vocacion">
+          <h2>Vocación</h2>
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAccordion(this)">Sacerdote ¿yo?</div>
+            <div class="acc-body">Contenido sobre el llamado al sacerdocio...</div>
+          </div>
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAccordion(this)">¿Y Dios me llama al matrimonio?</div>
+            <div class="acc-body">Información sobre la vida matrimonial cristiana...</div>
+          </div>
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAccordion(this)">Vida Consagrada</div>
+            <div class="acc-body">Explicación sobre órdenes religiosas y vida consagrada...</div>
+          </div>
+          <div class="acc-item">
+            <div class="acc-header" onclick="toggleAccordion(this)">¿Qué es la soltería?</div>
+            <div class="acc-body">Reflexión sobre la vocación a la soltería...</div>
+          </div>
         </div>
       </aside>
     </section>
 
+    <!-- FOOTER -->
     <footer>
       <div class="footer-grid">
         <div>
@@ -241,7 +243,7 @@
 
   <!-- Chatbot -->
   <button class="chatbot" aria-label="Abrir chatbot">
-    <img src="chat_icon.png" alt="">
+    <img src="chat_icon.gif" alt="Robot">
   </button>
   <div class="chat-window" aria-label="Ventana de chat">
     <div class="chat-header">Chatbot <button onclick="closeChat()" aria-label="Cerrar chat">✖</button></div>
@@ -281,11 +283,33 @@
       msg.textContent="Tú: "+input.value;
       body.appendChild(msg);
       body.scrollTop=body.scrollHeight;
-      setTimeout(()=>{ const resp=document.createElement('p'); resp.textContent="Bot: Gracias por tu mensaje, pronto te responderemos."; body.appendChild(resp); body.scrollTop=body.scrollHeight; },800);
+      setTimeout(()=>{
+        const resp=document.createElement('p');
+        resp.textContent="Bot: Gracias por tu mensaje, pronto te responderemos.";
+        body.appendChild(resp);
+        body.scrollTop=body.scrollHeight;
+      },800);
       input.value='';
+    }
+
+    // Accordion
+    function toggleAccordion(el){
+      const body = el.nextElementSibling;
+      body.style.display = body.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Oraciones
+    function addPrayer(){
+      const textarea = document.getElementById('newPrayer');
+      const list = document.getElementById('prayerList');
+      if(textarea.value.trim()==='') return;
+      const p = document.createElement('div');
+      p.className = 'prayer-item';
+      p.textContent = textarea.value;
+      list.appendChild(p);
+      textarea.value='';
+      list.scrollTop=list.scrollHeight;
     }
   </script>
 </body>
 </html>
-
-
