@@ -28,12 +28,10 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.45;
-      -webkit-font-feature-settings: "liga";
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--maxw);margin:28px auto;padding:0 18px}
 
-    /* Header */
     header{
       position:sticky;top:12px;z-index:80;
       background:linear-gradient(90deg,var(--accent), #5b4bd1);
@@ -47,15 +45,13 @@
     nav a{font-weight:600;color:rgba(255,255,255,0.95);padding:6px 10px;border-radius:8px;transition:all .18s}
     nav a:hover{background:rgba(255,255,255,0.06)}
 
-    /* Hero */
     .hero{display:flex;gap:20px;align-items:center;margin-top:20px;flex-wrap:wrap}
     .hero-left{flex:1;min-width:260px}
-    .hero-right{flex:1;display:flex;justify-content:center;align-items:center}
+    .hero-right{flex:1;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px}
     .poster{width:100%;max-width:520px;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.65);display:block;object-fit:cover}
     .small{color:var(--muted);font-size:0.95rem}
     .lead{font-size:1.05rem;margin:8px 0;color:#fff}
 
-    /* Grid layout */
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
     .col-span-2{grid-column:span 2}
     .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -63,36 +59,29 @@
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--primary);color:#fff;font-weight:700;border:none;cursor:pointer}
     .muted{color:var(--muted)}
 
-    /* Countdown */
     .countdown{font-family:monospace;background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;text-align:center;font-weight:700}
 
-    /* Calendar timeline */
     .timeline{display:flex;flex-direction:column;gap:10px}
     .event-card{display:flex;gap:12px;align-items:center;background:var(--glass);padding:10px;border-radius:10px}
     .event-date{min-width:78px;background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;text-align:center;font-weight:700}
     .event-title{font-weight:700}
 
-    /* Gallery */
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .15s}
     .gallery img:hover{transform:scale(1.03)}
 
-    /* Oraciones muro */
     .prayer-list{max-height:260px;overflow:auto;padding:8px;display:flex;flex-direction:column;gap:8px}
     .prayer-item{background:rgba(255,255,255,0.03);padding:10px;border-radius:8px}
 
-    /* Vocaciones - acordeón */
     .accordion{display:flex;flex-direction:column;gap:8px}
     .acc-item{background:var(--glass);border-radius:8px;padding:10px}
     .acc-header{display:flex;justify-content:space-between;cursor:pointer;font-weight:700}
     .acc-body{margin-top:8px;display:none;color:var(--muted)}
 
-    /* Footer */
     footer{margin-top:20px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#060608,#0b0b0d);box-shadow:var(--shadow)}
     .footer-grid{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
     .footer-grid > div{flex:1;min-width:200px}
 
-    /* Chatbot */
     .chatbot{
       position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:14px;background:linear-gradient(180deg,var(--accent),#5b4bd1);
       display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:120;box-shadow:0 10px 30px rgba(91,75,209,0.25);
@@ -112,16 +101,13 @@
     .chat-input input{flex:1;border:0;padding:10px;font-size:0.95rem}
     .chat-input button{padding:10px 12px;border:0;background:var(--primary);color:#fff;font-weight:700;cursor:pointer;border-radius:0 0 12px 0}
 
-    /* Lightbox */
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;padding:20px;z-index:200;opacity:0;pointer-events:none;transition:opacity .18s}
     .lightbox.show{opacity:1;pointer-events:auto}
     .lightbox img{max-width:90%;max-height:90%;border-radius:8px}
 
-    /* Responsive */
     @media (max-width:1000px){ .grid{grid-template-columns:1fr 320px} .col-span-2{grid-column:span 1} .gallery{grid-template-columns:repeat(2,1fr)} }
     @media (max-width:700px){ .grid{grid-template-columns:1fr} .hero-right{order:2} nav{display:none} .gallery{grid-template-columns:1fr} }
 
-    /* Focus */
     a:focus, button:focus, input:focus{outline:3px solid rgba(106,90,205,0.18);outline-offset:2px}
   </style>
 </head>
@@ -129,7 +115,7 @@
   <div class="container">
     <header role="banner" aria-label="Encabezado Pastoral Juvenil">
       <div class="brand">
-        <img src="logo1.webp" alt="Logo Decanato" class="logo" />
+        <img src="logo.png" alt="Logo Decanato" class="logo" />
         <div>
           <h1>Pastoral Juvenil Vocacional III · 6º Decanato</h1>
           <div class="small">Arquidiocesis Primada de México — Decanato Sexto</div>
@@ -155,8 +141,8 @@
         <p style="margin-top:12px"><a class="btn" href="#eventos">Ver eventos</a></p>
       </div>
       <div class="hero-right">
-        <!-- Usa .webp para mejor compresión; si no tienes webp, JPG funciona -->
-        <img src="Poster3pmT.webp" class="poster" alt="Poster JOJUVO (reemplaza con tu imagen)" loading="lazy">
+        <img src="poster_jojuvo.jpg" class="poster" alt="Poster JOJUVO" loading="lazy">
+        <img src="poster_rifa.jpg" class="poster" alt="Poster Rifa" loading="lazy">
       </div>
     </section>
 
@@ -164,12 +150,10 @@
     <section class="grid" aria-label="Contenido principal">
       <!-- LEFT: Calendar + Gallery (span 2 columns on wide) -->
       <div class="col-span-2">
-        <!-- Events / Timeline -->
         <div class="card" id="eventos">
           <h2>Próximos eventos</h2>
           <p class="small">Calendario con los eventos más importantes.</p>
           <div class="timeline" style="margin-top:12px">
-            <!-- Event: Retiro -->
             <div class="event-card" role="article" aria-label="Retiro de jóvenes 26 de octubre 2025">
               <div class="event-date">
                 <div style="font-size:0.95rem">26</div>
@@ -177,11 +161,9 @@
               </div>
               <div>
                 <div class="event-title">Retiro de Jóvenes</div>
-                <div class="small">Lugar: Casa de Retiros • Hora: 08:00 — 18:00</div>
+                <div class="small">Lugar: Parroquia local • Hora: 09:00 — 17:00</div>
               </div>
             </div>
-
-            <!-- Event: JOJUVO -->
             <div class="event-card" role="article" aria-label="JOJUVO 8 de noviembre 2025">
               <div class="event-date">
                 <div style="font-size:0.95rem">08</div>
@@ -192,8 +174,6 @@
                 <div class="small">Calle 5 #447, Cuchilla Pantitlán • Inscripciones limitadas</div>
               </div>
             </div>
-
-            <!-- Event: Peregrinación (próximamente) -->
             <div class="event-card" role="article" aria-label="Peregrinación a Cristo Rey próximamente">
               <div class="event-date">
                 <div style="font-size:0.9rem">Próx</div>
@@ -207,18 +187,16 @@
           </div>
         </div>
 
-        <!-- Gallery -->
         <div class="card" style="margin-top:16px">
           <h2>Galería</h2>
-          <p class="small">Fotos de eventos — haz clic para ampliar. Recomendado: guarda imágenes en <strong>.webp</strong> a 1200–1500px de ancho para posters; 800–1200px para fotos de galería. Iconos/logos 200–400px.</p>
+          <p class="small">Fotos de eventos — haz clic para ampliar. Por el momento, conservamos JPG/PNG.</p>
           <div class="gallery" id="gallery" style="margin-top:12px">
-            <!-- reemplaza con tus archivos .webp optimizados -->
-            <img src="galeria1.webp" alt="Foto evento 1" loading="lazy">
-            <img src="galeria2.webp" alt="Foto evento 2" loading="lazy">
-            <img src="galeria3.webp" alt="Foto evento 3" loading="lazy">
-            <img src="galeria4.webp" alt="Foto evento 4" loading="lazy">
-            <img src="galeria5.webp" alt="Foto evento 5" loading="lazy">
-            <img src="galeria6.webp" alt="Foto evento 6" loading="lazy">
+            <img src="galeria1.jpg" alt="Foto evento 1" loading="lazy">
+            <img src="galeria2.jpg" alt="Foto evento 2" loading="lazy">
+            <img src="galeria3.jpg" alt="Foto evento 3" loading="lazy">
+            <img src="galeria4.png" alt="Foto evento 4" loading="lazy">
+            <img src="galeria5.jpg" alt="Foto evento 5" loading="lazy">
+            <img src="galeria6.png" alt="Foto evento 6" loading="lazy">
           </div>
         </div>
       </div>
@@ -230,319 +208,82 @@
 
         <div style="margin-top:10px">
           <h3 style="margin:6px 0">Descargas</h3>
-          <ul style="list-style:none;padding:0;margin:6px 0" class="small">
-            <li style="margin-bottom:8px"><span>Guía de liderazgo</span><br><a class="btn" href="docs/guia-liderazgo.pdf" download style="margin-top:6px;display:inline-block">Descargar</a></li>
-            <li style="margin-bottom:8px"><span>Formato de inscripción</span><br><a class="btn" href="docs/formato-inscripcion.pdf" download style="margin-top:6px;display:inline-block">Descargar</a></li>
-            <li style="margin-bottom:8px"><span>Oraciones y dinámicas</span><br><a class="btn" href="docs/oraciones.pdf" download style="margin-top:6px;display:inline-block">Descargar</a></li>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="manual_lider.pdf" class="btn">Manual de Líder</a></li>
+            <li style="margin-top:6px"><a href="oraciones.pdf" class="btn">Oraciones Juveniles</a></li>
           </ul>
         </div>
 
-        <div style="margin-top:12px">
-          <h3 style="margin:6px 0">Mapa del lugar</h3>
-          <div style="border-radius:8px;overflow:hidden;margin-top:8px" aria-hidden="false">
-            <iframe title="Mapa - Parroquia JOJUVO" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1000000000005!2d-99.109567!3d19.418234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ffbfa9876543%3A0x123456789abcdef0!2sCalle%205%20447%2C%20Cuchilla%20Pantitl%C3%A1n%2C%20Venustiano%20Carranza%2C%2015610%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1696070000000!5m2!1ses-419!2smx" style="border:0;width:100%;height:180px"></iframe>
-          </div>
-        </div>
-
-        <div style="margin-top:12px">
-          <h3 style="margin:6px 0">Agenda</h3>
-          <div class="small muted">
-            <div style="margin-top:6px"><strong>Retiro Jóvenes</strong> — 26 Oct 2025</div>
-            <div style="margin-top:6px"><strong>JOJUVO</strong> — 8 Nov 2025</div>
-            <div style="margin-top:6px"><strong>Peregrinación a Cristo Rey</strong> — Próximamente</div>
-          </div>
+        <div style="margin-top:16px">
+          <h3 style="margin:6px 0">Ubicación</h3>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="200" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </aside>
-
-      <!-- Parroquias card full-width -->
-      <div class="card" id="parroquias" style="grid-column:1 / -1; margin-top:16px">
-        <h2>Parroquias del Decanato</h2>
-        <p class="small">Las parroquias que forman parte del sexto decanato:</p>
-        <div class="small" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px">
-          <span class="muted">Nuestra Señora del Pueblito</span>
-          <span class="muted">Nuestra Señora de la Consolación</span>
-          <span class="muted">Nuestra Señora del Carmen</span>
-          <span class="muted">San José Obrero y Corazón de María</span>
-          <span class="muted">Rectoría de Nuestra Señora de Guadalupe</span>
-          <span class="muted">Nuestra Señora del Perpetuo Socorro</span>
-          <span class="muted">Sagrado Corazón de Jesús</span>
-          <span class="muted">Sagrados Corazones</span>
-          <span class="muted">San Isidro</span>
-          <span class="muted">Santísima Trinidad</span>
-          <span class="muted">Sagrada Familia y Ntra. Sra. de Gpe.</span>
-        </div>
-      </div>
-
-      <!-- Oraciones + Deja tus oraciones -->
-      <div class="card" style="grid-column:1 / span 2; margin-top:16px" id="oraciones">
-        <h2>Repositorio de Oraciones</h2>
-        <p class="small">Aquí puedes encontrar oraciones y dejar tu intención. Las oraciones públicas quedan visibles en el muro (anónimas si lo prefieres).</p>
-
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-          <form id="prayForm" style="flex:1;min-width:260px">
-            <label class="small" for="prayText">Deja tu oración (máx 500 caracteres)</label>
-            <textarea id="prayText" maxlength="500" rows="4" required style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff"></textarea>
-            <div style="display:flex;gap:8px;margin-top:8px">
-              <button class="btn" type="submit">Enviar oración</button>
-              <button type="button" id="clearPrayers" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:8px;border-radius:8px;cursor:pointer">Borrar muro (admin)</button>
-            </div>
-          </form>
-
-          <div style="flex:1;min-width:260px">
-            <h3 style="margin-top:0">Muro de oraciones</h3>
-            <div class="prayer-list" id="prayerList" aria-live="polite"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vocacion accordion -->
-      <aside class="card" id="vocacion" style="margin-top:16px">
-        <h2>¿Vocación?</h2>
-        <p class="small">Explora caminos de vida cristiana — despliega cada tema para leer más.</p>
-
-        <div class="accordion" style="margin-top:12px">
-          <div class="acc-item">
-            <div class="acc-header" data-key="sacerdote">Sacerdocio — ¿Sacerdote, yo?</div>
-            <div class="acc-body" data-body="sacerdote">
-              <p class="small">El sacerdocio es un llamado particular a servir a la comunidad a través del ministerio sacramental y pastoral. Es una vocación al servicio de los demás y cuyo acompañamiento debe ser perfectamente bien discernido. Para ser sacerdote deberás pasar por la formación en el seminario y acompañamiento. Si sientes inquietud, habla con tu párroco o con el equipo vocacional. o ponte en contacto directo con el Seminario Conciliar de México</p>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <div class="acc-header" data-key="matrimonio">Matrimonio — ¿Y si Dios me llama al matrimonio?</div>
-            <div class="acc-body" data-body="matrimonio">
-              <p class="small">El matrimonio es un sacramento de alianza y vida compartida. No solo se trata de una emoción o de un sentimiento, sino de un discernimiento profundo que se vive principalmente en el noviazgo. El matrimonio es tan importante en nuestra sociedad para la construcción de vínculos de paz.  Es una vocación hermosa que implica entrega, diálogo y crecimiento conjunto. Preparación matrimonial y acompañamiento son fundamentales.</p>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <div class="acc-header" data-key="vida">Vida Consagrada</div>
-            <div class="acc-body" data-body="vida">
-              <p class="small">La vida consagrada implica dedicarse a Dios por medio de votos y una comunidad, viviendo en un carisma específico de algún santo fundador. La vida religiosa implica la alegría de ser esposados con la Iglesia, viviendo en oración y contemplación; aunque también existen carismas de vida activa. Si tienes más dudas dirígete con tu párroco o algún asesor.</p>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <div class="acc-header" data-key="solteria">Soltería — ¿Qué es?</div>
-            <div class="acc-body" data-body="solteria">
-              <p class="small">La soltería cristiana puede ser un tiempo de libertad, servicio y crecimiento personal. No es un estado “provisional” necesariamente, sino una forma de vida que también puede ser fecunda pastoralmente. Es un tiempo de discernimiento de las vocaciones, un momento para profundizar en cuál será la misión para la que Dios me ha llamado, aquella en la que me santifico, vivir la soltería implica vivir las mismas virtudes que el resto de las vocaciones, castidad, pureza, entrega.</p>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Contacto -->
-      <div class="card" style="grid-column:1 / -1; margin-top:16px" id="contacto">
-        <h2>Contacto</h2>
-        <p class="small">¿Dudas o propuestas? Escríbenos o envía tu material para publicación.</p>
-        <form id="contact-form" style="display:flex;gap:8px;flex-wrap:wrap">
-          <input id="cname" name="nombre" type="text" placeholder="Nombre (opcional)" style="flex:1;min-width:220px;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff">
-          <input id="cemail" name="email" type="email" placeholder="Correo" required style="flex:1;min-width:220px;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff">
-          <textarea id="cmsg" name="mensaje" rows="3" placeholder="Mensaje" required style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff"></textarea>
-          <div style="width:100%;display:flex;gap:8px">
-            <button class="btn" type="submit">Enviar mensaje</button>
-            <a class="btn" href="mailto:pastoraljuvenilvocacional3z6d@gmail.com">Enviar por correo</a>
-          </div>
-          <div id="contactResult" class="small" style="color:#cfe3ff;margin-top:8px"></div>
-        </form>
-      </div>
     </section>
 
-    <footer role="contentinfo" style="margin-top:20px">
+    <footer>
       <div class="footer-grid">
         <div>
-          <strong>Pastoral Juvenil Vocacional III</strong>
-          <p class="small">6º Decanato · Arquidiocesis Primada de México</p>
+          <h3>Contacto</h3>
+          <p class="small">Email: contacto@jojuvo.mx<br>Tel: +52 55 1234 5678</p>
         </div>
         <div>
-          <strong>Contacto</strong>
-          <p class="small">pastoraljuvenilvocacional3z6d@gmail.com</p>
-          <p class="small">Decanato "San José" III Zona Pastoral "San Felipe de Jesús"</p>
+          <h3>Redes Sociales</h3>
+          <p class="small">Facebook | Instagram | YouTube</p>
         </div>
         <div>
-          <strong>Síguenos</strong>
-          <p><a class="small" href="#" target="_blank">Instagram</a> · <a class="small" href="#" target="_blank">Facebook</a></p>
+          <h3>Créditos</h3>
+          <p class="small">Diseño y desarrollo: equipo pastoral juvenil</p>
         </div>
       </div>
-      <p class="small" style="margin-top:12px;color:rgba(255,255,255,0.45)">© <span id="year"></span> Pastoral Juvenil Vocacional III · Hecho con ♥</p>
     </footer>
   </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-    <img alt="Ampliar imagen" id="lightbox-img" src="">
-  </div>
-
-  <!-- Chatbot button + window -->
-  <button id="chatbot" class="chatbot" aria-label="Abrir chat">
-    <!-- puedes cambiar por un GIF animado (robot) si quieres -->
-    <img src="robot-icon.webp" alt="Icono chatbot">
+  <!-- Chatbot -->
+  <button class="chatbot" aria-label="Abrir chatbot">
+    <img src="chat_icon.png" alt="">
   </button>
-
-  <div id="chatWindow" class="chat-window" role="dialog" aria-modal="false" aria-hidden="true">
-    <div class="chat-header">
-      <div>Asistente 🤖</div>
-      <button id="chatClose" aria-label="Cerrar chat" style="background:transparent;border:0;color:#fff;font-weight:700;cursor:pointer">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody" aria-live="polite">
-      <p><strong>Asistente:</strong> ¡Hola! escribe tu duda.</p>
+  <div class="chat-window" aria-label="Ventana de chat">
+    <div class="chat-header">Chatbot <button onclick="closeChat()" aria-label="Cerrar chat">✖</button></div>
+    <div class="chat-body" id="chatBody">
+      <p>Hola 👋, soy el asistente virtual. Puedes preguntarme sobre eventos, parroquias y recursos.</p>
     </div>
     <div class="chat-input">
-      <input id="chatInput" type="text" aria-label="Mensaje al asistente" placeholder="Escribe tu mensaje...">
-      <button id="sendChat">Enviar</button>
+      <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." />
+      <button onclick="sendMessage()">Enviar</button>
     </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <img src="" alt="" id="lightboxImg">
   </div>
 
   <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // LIGHTBOX
+    // Gallery Lightbox
     const gallery = document.getElementById('gallery');
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    if(gallery){
-      gallery.addEventListener('click', e => {
-        const img = e.target.closest('img');
-        if(!img) return;
-        lightboxImg.src = img.src;
-        lightbox.classList.add('show');
-        lightbox.setAttribute('aria-hidden','false');
-      });
+    const lightboxImg = document.getElementById('lightboxImg');
+    gallery.querySelectorAll('img').forEach(img=>{
+      img.addEventListener('click',()=>{ lightboxImg.src=img.src; lightbox.classList.add('show'); })
+    });
+    lightbox.addEventListener('click',()=>{ lightbox.classList.remove('show'); });
+
+    // Chatbot
+    const chatbotBtn=document.querySelector('.chatbot');
+    const chatWindow=document.querySelector('.chat-window');
+    chatbotBtn.addEventListener('click',()=>{ chatWindow.classList.toggle('show'); });
+    function closeChat(){ chatWindow.classList.remove('show'); }
+    function sendMessage(){
+      const input=document.getElementById('chatInput');
+      if(input.value.trim()==='') return;
+      const body=document.getElementById('chatBody');
+      const msg=document.createElement('p');
+      msg.textContent="Tú: "+input.value;
+      body.appendChild(msg);
+      body.scrollTop=body.scrollHeight;
+      setTimeout(()=>{ const resp=document.createElement('p'); resp.textContent="Bot: Gracias por tu mensaje, pronto te responderemos."; body.appendChild(resp); body.scrollTop=body.scrollHeight; },800);
+      input.value='';
     }
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.remove('show');
-      lightbox.setAttribute('aria-hidden','true');
-      lightboxImg.src = '';
-    });
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape'){ lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden','true'); }
-    });
-
-    // CONTACT FORM (simulado)
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('cname').value || 'Amigo';
-      const result = document.getElementById('contactResult');
-      result.textContent = `Gracias ${name}. Mensaje recibido (simulado).`;
-      this.reset();
-      setTimeout(()=> result.textContent = '', 7000);
-    });
-
-    // PRAYERS: Save to localStorage and render
-    const prayForm = document.getElementById('prayForm');
-    const prayText = document.getElementById('prayText');
-    const prayerList = document.getElementById('prayerList');
-    const clearBtn = document.getElementById('clearPrayers');
-    const PRAY_KEY = 'pjv_prayers_v1';
-
-    function loadPrayers(){
-      try{
-        const raw = localStorage.getItem(PRAY_KEY);
-        const arr = raw ? JSON.parse(raw) : [];
-        renderPrayers(arr);
-      }catch(e){ console.error(e); renderPrayers([]); }
-    }
-    function renderPrayers(arr){
-      prayerList.innerHTML = '';
-      if(!arr.length) { prayerList.innerHTML = '<div class="small muted">No hay oraciones todavía. Sé el primero.</div>'; return; }
-      arr.slice().reverse().forEach(p => {
-        const el = document.createElement('div');
-        el.className = 'prayer-item';
-        el.innerHTML = `<div style="font-size:0.85rem;color:var(--muted)">${escapeHtml(p.ts)}</div><div style="margin-top:6px">${escapeHtml(p.text)}</div>`;
-        prayerList.appendChild(el);
-      });
-    }
-    function escapeHtml(s){ return (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-    prayForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const txt = (prayText.value || '').trim();
-      if(!txt) return;
-      try{
-        const raw = localStorage.getItem(PRAY_KEY);
-        const arr = raw ? JSON.parse(raw) : [];
-        arr.push({text: txt, ts: new Date().toLocaleString()});
-        localStorage.setItem(PRAY_KEY, JSON.stringify(arr));
-        prayText.value = '';
-        loadPrayers();
-      }catch(err){ console.error(err); }
-    });
-
-    clearBtn.addEventListener('click', () => {
-      if(confirm('¿Borrar todas las oraciones del muro? (acción irreversible)')) {
-        localStorage.removeItem(PRAY_KEY);
-        loadPrayers();
-      }
-    });
-
-    loadPrayers();
-
-    // ACCORDION VOCACION
-    document.querySelectorAll('.acc-header').forEach(h => {
-      h.addEventListener('click', () => {
-        const body = h.nextElementSibling;
-        const open = body.style.display === 'block';
-        document.querySelectorAll('.acc-body').forEach(b=> b.style.display = 'none');
-        if(!open) body.style.display = 'block';
-      });
-    });
-
-    // CHATBOT
-    const chatbotBtn = document.getElementById('chatbot');
-    const chatWindow = document.getElementById('chatWindow');
-    const chatClose = document.getElementById('chatClose');
-    const chatBody = document.getElementById('chatBody');
-    const chatInput = document.getElementById('chatInput');
-    const sendChat = document.getElementById('sendChat');
-
-    function openChat(){ chatWindow.classList.add('show'); chatWindow.setAttribute('aria-hidden','false'); chatWindow.setAttribute('aria-modal','true'); chatInput.focus(); }
-    function closeChat(){ chatWindow.classList.remove('show'); chatWindow.setAttribute('aria-hidden','true'); chatWindow.setAttribute('aria-modal','false'); chatbotBtn.focus(); }
-    chatbotBtn.addEventListener('click', ()=> { if(chatWindow.classList.contains('show')) closeChat(); else openChat(); });
-    chatClose.addEventListener('click', closeChat);
-    document.addEventListener('keydown', e=> { if(e.key === 'Escape') { closeChat(); lightbox.classList.remove('show'); } });
-
-    function appendUser(text){ const p = document.createElement('p'); p.innerHTML = `<strong>Tú:</strong> ${escapeHtml(text)}`; chatBody.appendChild(p); chatBody.scrollTop = chatBody.scrollHeight; }
-    function appendAssist(html){ const p = document.createElement('p'); p.innerHTML = `<strong>Asistente:</strong> ${html}`; chatBody.appendChild(p); chatBody.scrollTop = chatBody.scrollHeight; }
-
-    function handleMsg(){
-      const msg = (chatInput.value || '').trim();
-      if(!msg) return;
-      appendUser(msg);
-      chatInput.value = '';
-      const q = msg.toLowerCase();
-
-      if(q.includes('cuándo') && q.includes('jojuvo')) appendAssist('El JOJUVO será el <strong>8 de noviembre de 2025</strong>.');
-      else if(q.includes('dónde') && q.includes('jojuvo')) appendAssist('Se realizará en la parroquia: <strong>Calle 5 #447, Cuchilla Pantitlán, Venustiano Carranza, CDMX</strong>.');
-      else if(q.includes('boleto') || q.includes('venta')) appendAssist('Los boletos se venden <strong>directamente en la parroquia</strong>. No hay venta digital por el momento.');
-      else if(q.includes('oraci') || q.includes('oración') || q.includes('oraciones')) appendAssist('Visita la sección "Repositorio de Oraciones" para dejar una intención o descargar oraciones en la sección Recursos.');
-      else if(q.includes('parroquias')) appendAssist('Lista de parroquias publicada en la sección correspondiente. Escribe "parroquias" para ver.');
-      else if(q.includes('vocacion') || q.includes('sacerdote') || q.includes('matrimonio')) appendAssist('Revisa la sección "Vocación" para información sobre Sacerdocio, Matrimonio, Vida Consagrada y Soltería.');
-      else appendAssist('No estoy seguro de eso. Por favor escribe tu duda al correo <strong>pastoraljuvenilvocacional3z6d@gmail.com</strong> y te responderemos.');
-    }
-
-    sendChat.addEventListener('click', handleMsg);
-    chatInput.addEventListener('keydown', (e)=> { if(e.key === 'Enter') handleMsg(); });
-
-    // UX: persist minimal chat in sessionStorage
-    (function persistChat(){
-      try{
-        const cached = sessionStorage.getItem('pjv_chat');
-        if(cached) { chatBody.innerHTML = cached; }
-        const obs = new MutationObserver(()=> sessionStorage.setItem('pjv_chat', chatBody.innerHTML));
-        obs.observe(chatBody, {childList:true, subtree:true});
-      }catch(e){}
-    })();
-
-    // Small enhancement: smooth scroll for internal anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const target = document.querySelector(a.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    });
-
-    // OPTIONAL: Preload small assets (robot icon) -- if using webp make sure browser support (most modern do)
   </script>
 </body>
 </html>
