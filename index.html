@@ -1,265 +1,474 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pastoral Juvenil Vocacional III Zona Pastoral Sexto Decanato</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --primary:#ff6f61;
-  --secondary:#ffb347;
-  --accent:#6a5acd;
-  --dark:#1a1a1a;
-  --light:#f5f5f5;
-  --maxw:1200px;
-}
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  color:#fff;
-  scroll-behavior:smooth;
-  overflow-x:hidden;
-  position:relative;
-  background: #0a0a0a;
-}
-body::before{
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: url('logo1.png') center/30% no-repeat;
-  opacity:0.1;
-  z-index:-1;
-}
-body::after{
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: linear-gradient(90deg, rgba(255,0,150,0.1) 0%, rgba(0,255,255,0.1) 50%, rgba(255,255,0,0.1) 100%);
-  animation: neonMove 10s linear infinite;
-  z-index:-1;
-}
-@keyframes neonMove{
-  0%{background-position:0 0;}
-  100%{background-position:1000px 0;}
-}
-a{text-decoration:none;color:inherit;}
-.container{max-width:var(--maxw);margin:24px auto;padding:0 16px;}
-header{display:flex;align-items:center;justify-content:space-between;color:white;background:var(--accent);padding:12px 16px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.3);position: sticky; top:0; z-index:100;}
-.brand{display:flex;gap:12px;align-items:center;}
-.logo-img{width:56px;height:56px;border-radius:12px;object-fit:cover;}
-nav a{margin-left:16px;font-weight:600;transition:color 0.2s;color:white;}
-nav a:hover{color:var(--secondary);}
-h1,h2,h3{color:#fff;margin:8px 0;font-family:'Playfair Display', serif;}
-h3{font-size:1.1rem;}
-.card{background: rgba(20,20,20,0.85);border-radius:16px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,0.5);transition: transform 0.3s, box-shadow 0.3s;}
-.card:hover{transform: translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.6);}
-.small{font-size:0.9rem;color:#ccc;}
-.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-align:center;cursor:pointer;border:none;background:var(--primary);color:white;transition:transform 0.2s ease,box-shadow 0.2s ease;}
-.btn:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,0.5);}
-.map-container{margin-top:16px;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.5);}
-iframe{width:100%;height:400px;border:0;}
-.poster-hero{margin-top:20px;display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:20px;position:relative;}
-.poster-hero img{width:45%;max-width:500px;border-radius:16px;transform: translateY(0);transition: transform 0.5s ease-out, box-shadow 0.3s;box-shadow:0 12px 40px rgba(0,0,0,0.6);}
-.poster-hero img:hover{transform: translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,0.7);}
-.floating{position:absolute;border-radius:50%;background:rgba(255,255,255,0.15);animation: float 8s ease-in-out infinite;}
-@keyframes float{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(20px);}}
-.countdown{font-size:2rem;font-weight:700;color:white;text-align:center;margin-top:12px;background:rgba(0,0,0,0.8);padding:12px;border-radius:12px;font-family:monospace;}
-.socials{display:flex;gap:16px;margin-top:12px;}
-.socials a{font-weight:700;color:white;background:var(--accent);padding:12px 16px;border-radius:12px;transition:0.2s;}
-.socials a:hover{background:var(--primary);}
-.news-periodico{font-family:'Playfair Display', serif; background:#111; padding:16px; border-left:6px solid var(--accent); box-shadow:0 8px 20px rgba(0,0,0,0.5); margin-top:12px;}
-.chatbot{position:fixed;width:60px;height:60px;bottom:20px;right:20px;z-index:200;cursor:pointer;}
-.chat-window{position:fixed;bottom:90px;right:20px;width:300px;background:white;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.3);display:none;flex-direction:column;overflow:hidden;z-index:201;}
-.chat-header{background:var(--accent);color:white;padding:12px;font-weight:700;text-align:center;}
-.chat-body{padding:12px;max-height:200px;overflow-y:auto;}
-.chat-input{display:flex;border-top:1px solid #ccc;}
-.chat-input input{flex:1;border:none;padding:8px;}
-.chat-input button{padding:8px;border:none;background:var(--primary);color:white;cursor:pointer;}
-.fade-up{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
-.fade-up.show{opacity:1;transform:translateY(0);}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pastoral Juvenil Vocacional III · 6º Decanato</title>
+  <meta name="description" content="Pastoral Juvenil Vocacional III Zona Pastoral Sexto Decanato — recursos, noticias, JOJUVO y contacto." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070709;
+      --card:#0f1114;
+      --accent:#6a5acd;
+      --primary:#ff6f61;
+      --muted:#bfc4cc;
+      --glass: rgba(255,255,255,0.04);
+      --maxw:1200px;
+    }
+    /* Reset + base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(180deg,#030305 0%, #0a0a0a 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin:28px auto;padding:0 18px}
+
+    /* Header */
+    header{
+      position:sticky;top:12px;z-index:80;
+      background:linear-gradient(90deg,var(--accent), #5b4bd1);
+      border-radius:12px;padding:12px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo-img{width:56px;height:56px;border-radius:10px;object-fit:cover;background:#fff;padding:6px}
+    .brand h1{font-family:'Playfair Display',serif;margin:0;font-size:1.05rem}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{font-weight:600;color:rgba(255,255,255,0.95);padding:6px 10px;border-radius:8px;transition:all .18s}
+    nav a:hover{background:rgba(255,255,255,0.06)}
+
+    /* Hero */
+    .hero{display:flex;gap:20px;align-items:center;margin-top:20px;flex-wrap:wrap}
+    .hero-left{flex:1;min-width:260px}
+    .hero-right{flex:1;display:flex;justify-content:center;align-items:center}
+    .poster{width:100%;max-width:520px;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.6);display:block;object-fit:cover}
+    .small{color:var(--muted);font-size:0.95rem}
+    .lead{font-size:1.05rem;margin:8px 0;color:#fff}
+
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.5)}
+    .card h2{margin:0 0 8px 0;font-family:'Playfair Display',serif}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--primary);color:#fff;font-weight:700;border:none;cursor:pointer}
+
+    /* Countdown */
+    .countdown{font-family:monospace;background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;text-align:center;font-weight:700}
+
+    /* Map */
+    .map-container{border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+
+    /* Reliquias carousel simple */
+    .carousel{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px}
+    .card-item{min-width:200px;background:var(--card);border-radius:12px;padding:12px;flex-shrink:0}
+    .card-item img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    /* Gallery lightbox */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .15s}
+    .gallery img:hover{transform:scale(1.03)}
+
+    /* Resources list */
+    .resources li{margin:8px 0;padding:10px;background:var(--glass);border-radius:8px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Footer */
+    footer{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#060608, #0b0b0d);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .footer-grid{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+    .footer-grid > div{flex:1;min-width:200px}
+
+    /* Chatbot */
+    .chatbot{
+      position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:14px;background:linear-gradient(180deg,var(--accent),#5b4bd1);
+      display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:120;box-shadow:0 10px 30px rgba(91,75,209,0.25);
+      transition:transform .18s, box-shadow .18s;outline:none;border:none;
+    }
+    .chatbot:active{transform:translateY(2px)}
+    .chatbot img{width:34px;height:34px;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.35));}
+
+    .chat-window{
+      position:fixed;right:20px;bottom:96px;width:320px;max-width:92vw;border-radius:12px;background:#fff;color:#111;display:flex;flex-direction:column;z-index:121;box-shadow:0 20px 60px rgba(0,0,0,0.45);
+      transform:translateY(10px);opacity:0;pointer-events:none;transition:opacity .22s ease, transform .22s ease;
+    }
+    .chat-window.show{opacity:1;transform:translateY(0);pointer-events:auto}
+    .chat-header{padding:12px;background:linear-gradient(90deg,var(--accent),#5b4bd1);color:#fff;font-weight:700;border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center}
+    .chat-body{padding:12px;max-height:220px;overflow:auto;background:#fafafa;color:#111;font-size:0.95rem}
+    .chat-body p{margin:6px 0}
+    .chat-input{display:flex;border-top:1px solid #eee}
+    .chat-input input{flex:1;border:0;padding:10px;font-size:0.95rem}
+    .chat-input button{padding:10px 12px;border:0;background:var(--primary);color:#fff;font-weight:700;cursor:pointer;border-radius:0 0 12px 0}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:20px;z-index:200;opacity:0;pointer-events:none;transition:opacity .18s}
+    .lightbox.show{opacity:1;pointer-events:auto}
+    .lightbox img{max-width:90%;max-height:90%;border-radius:8px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .poster{max-width:420px}
+    }
+    @media (max-width:520px){
+      nav{display:none}
+      .gallery{grid-template-columns:1fr}
+    }
+
+    /* Accessibility focus */
+    a:focus, button:focus, input:focus{outline:3px solid rgba(106,90,205,0.18);outline-offset:2px}
+  </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
+    <header role="banner" aria-label="Encabezado Pastoral Juvenil">
+      <div class="brand">
+        <img src="logo1.png" alt="Logo Decanato" class="logo-img" />
+        <div>
+          <h1>Pastoral Juvenil Vocacional III · 6º Decanato</h1>
+          <div class="small">Arquidiocesis Primada de México — Decanato Sexto</div>
+        </div>
+      </div>
 
-<header>
-  <div class="brand">
-    <img src="logo1.png" alt="Logo Decanato" class="logo-img">
-    <div>
-      <div style="font-weight:700">Pastoral Juvenil Vocacional III Zona Pastoral Sexto Decanato</div>
-      <div class="small">6º Decanato · Arquidiocesis Primada de México</div>
+      <nav role="navigation" aria-label="Navegación principal">
+        <a href="#acerca">Acerca</a>
+        <a href="#parroquias">Parroquias</a>
+        <a href="#jojuvo">JOJUVO</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="acerca" aria-labelledby="acerca-title">
+      <div class="hero-left">
+        <div class="lead"><strong id="acerca-title">Bienvenidos a la Pastoral Juvenil Vocacional III</strong></div>
+        <p class="small">Somos un equipo que acompaña a jóvenes en su crecimiento humano y vocacional. Aquí encontrarás noticias, recursos para líderes, información del JOJUVO y materiales de formación.</p>
+        <p style="margin-top:12px"><a class="btn" href="#jojuvo">Ver JOJUVO</a></p>
+      </div>
+      <div class="hero-right">
+        <img src="Poster3pmT.jpg" class="poster" alt="Poster JOJUVO (reemplaza con tu imagen)" loading="lazy">
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="grid" aria-label="Secciones principales">
+      <!-- JOJUVO card -->
+      <div class="card" id="jojuvo" aria-labelledby="jojuvo-title">
+        <h2 id="jojuvo-title">JOJUVO — Jornada Juvenil Vocacional</h2>
+        <p class="small">Encuentro vocacional para jóvenes del decanato. Inscripciones limitadas.</p>
+        <div class="countdown" id="countdown" aria-live="polite" role="status">Calculando...</div>
+        <p style="margin-top:12px"><a class="btn" href="https://forms.gle/bakFvfs8bkn7wEGQ6" target="_blank" rel="noopener">Inscríbete</a></p>
+        <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)">
+        <p class="small"><strong>Dirección del evento:</strong><br>Calle 5 #447, Cuchilla Pantitlán, Venustiano Carranza, 15610 Ciudad de México, CDMX</p>
+        <div style="margin-top:10px" class="map-container" aria-hidden="false">
+          <!-- Reemplaza el src con tu embed si lo deseas -->
+          <iframe loading="lazy" title="Mapa - Parroquia JOJUVO"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1000000000005!2d-99.109567!3d19.418234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ffbfa9876543%3A0x123456789abcdef0!2sCalle%205%20447%2C%20Cuchilla%20Pantitl%C3%A1n%2C%20Venustiano%20Carranza%2C%2015610%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1696070000000!5m2!1ses-419!2smx"
+            style="width:100%;height:220px;border:0"></iframe>
+        </div>
+      </div>
+
+      <!-- Parroquias -->
+      <div class="card" id="parroquias" aria-labelledby="parroquias-title">
+        <h2 id="parroquias-title">Parroquias del Decanato</h2>
+        <p class="small">Aquí las parroquias que forman parte del sexto decanato:</p>
+        <ul class="small">
+          <li>Nuestra Señora del Pueblito</li>
+          <li>Nuestra Señora de la Consolación</li>
+          <li>Nuestra Señora del Carmen</li>
+          <li>San José Obrero y Corazón de María</li>
+          <li>Rectoría de Nuestra Señora de Guadalupe</li>
+          <li>Nuestra Señora del Perpetuo Socorro</li>
+          <li>Sagrado Corazón de Jesús</li>
+          <li>Sagrados Corazones</li>
+          <li>San Isidro</li>
+          <li>Santísima Trinidad</li>
+          <li>Sagrada Familia y Ntra. Sra. de Gpe.</li>
+        </ul>
+        <p style="margin-top:8px" class="small">¿Preguntas sobre una parroquia? Escribe en el chat o al correo: <strong>pastoraljuvenilvocacional3z6d@gmail.com</strong></p>
+      </div>
+
+      <!-- Reliquias -->
+      <div class="card" id="reliquias" aria-labelledby="reliquias-title">
+        <h2 id="reliquias-title">Reliquias / Objetos de devoción</h2>
+        <p class="small">En el JOJUVO tendremos la presencia de reliquias e información sobre su significado. (Completa con imágenes y breve texto).</p>
+        <div class="carousel" role="list">
+          <!-- Reemplaza las imágenes por las reales -->
+          <div class="card-item" role="listitem">
+            <img src="reliquia1.jpg" alt="Reliquia 1 (reemplaza)" loading="lazy">
+            <h3 style="font-size:0.95rem;margin:8px 0 0 0">San Carlo Acutis</h3>
+            <p class="small">Breve nota sobre la reliquia y su importancia.</p>
+          </div>
+          <div class="card-item" role="listitem">
+            <img src="reliquia2.jpg" alt="Reliquia 2 (reemplaza)" loading="lazy">
+            <h3 style="font-size:0.95rem;margin:8px 0 0 0">Piergiorgio</h3>
+            <p class="small">Breve nota sobre esta reliquia.</p>
+          </div>
+          <div class="card-item" role="listitem">
+            <img src="reliquia3.jpg" alt="Reliquia 3 (reemplaza)" loading="lazy">
+            <h3 style="font-size:0.95rem;margin:8px 0 0 0">Más información</h3>
+            <p class="small">Horarios de veneración y recomendaciones.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noticias / Blog -->
+      <div class="card" id="noticias" aria-labelledby="noticias-title">
+        <h2 id="noticias-title">Noticias & Comunicados</h2>
+        <article style="margin-top:6px">
+          <h3 style="margin:0 0 6px 0;font-size:1rem">Canonización & reliquias</h3>
+          <p class="small">Actualizaremos esta sección con comunicados oficiales, horarios y noticias posteriores al JOJUVO.</p>
+        </article>
+        <p style="margin-top:10px"><a class="btn" href="#contacto">Enviar comunicado</a></p>
+      </div>
+    </section>
+
+    <!-- Gallery + Resources -->
+    <section style="margin-top:20px">
+      <div class="grid" style="grid-template-columns:2fr 1fr">
+        <div class="card">
+          <h2>Galería</h2>
+          <p class="small">Fotos de eventos — haz clic para ampliar.</p>
+          <div class="gallery" id="gallery">
+            <!-- Reemplaza con tus imágenes -->
+            <img src="galeria1.jpg" alt="Foto 1" loading="lazy">
+            <img src="galeria2.jpg" alt="Foto 2" loading="lazy">
+            <img src="galeria3.jpg" alt="Foto 3" loading="lazy">
+            <img src="galeria4.jpg" alt="Foto 4" loading="lazy">
+            <img src="galeria5.jpg" alt="Foto 5" loading="lazy">
+            <img src="galeria6.jpg" alt="Foto 6" loading="lazy">
+          </div>
+        </div>
+
+        <aside class="card" id="recursos" aria-labelledby="recursos-title">
+          <h2 id="recursos-title">Recursos para líderes</h2>
+          <p class="small">Descarga guías, formatos y materiales para formación.</p>
+          <ul class="resources" style="list-style:none;padding:0;margin:12px 0 0 0">
+            <!-- Enlaza tus PDFs -->
+            <li>
+              <span>Guía de liderazgo (PDF)</span>
+              <a class="btn" href="docs/guia-liderazgo.pdf" download>Descargar</a>
+            </li>
+            <li>
+              <span>Formato de inscripción</span>
+              <a class="btn" href="docs/formato-inscripcion.pdf" download>Descargar</a>
+            </li>
+            <li>
+              <span>Dinámicas y oraciones</span>
+              <a class="btn" href="docs/dinamicas.pdf" download>Descargar</a>
+            </li>
+          </ul>
+
+          <h3 style="margin-top:14px">Agenda / Calendario</h3>
+          <p class="small">Próximos encuentros y reuniones de líderes.</p>
+          <!-- Si usas Google Calendar puedes embeber aquí -->
+          <div style="margin-top:8px">
+            <iframe src="https://calendar.google.com/calendar/embed?src=es.mexican%23holiday%40group.v.calendar.google.com&ctz=America%2FMexico_City" style="border:0" width="100%" height="220" frameborder="0" loading="lazy"></iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" style="margin-top:20px">
+      <div class="card">
+        <h2>Contacto</h2>
+        <p class="small">¿Dudas o propuestas? Escríbenos.</p>
+        <form id="contact-form" aria-label="Formulario de contacto">
+          <label class="small" for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff;margin-top:6px">
+          <label class="small" for="email" style="margin-top:8px;display:block">Correo</label>
+          <input id="email" name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff;margin-top:6px">
+          <label class="small" for="mensaje" style="margin-top:8px;display:block">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#fff;margin-top:6px"></textarea>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" type="submit">Enviar</button>
+            <a class="btn" href="mailto:pastoraljuvenilvocacional3z6d@gmail.com">Enviar por correo</a>
+          </div>
+          <div id="form-result" class="small" style="margin-top:10px;color:#cfe3ff"></div>
+        </form>
+      </div>
+    </section>
+
+    <footer role="contentinfo" style="margin-top:20px">
+      <div class="footer-grid">
+        <div>
+          <strong>Pastoral Juvenil Vocacional III</strong>
+          <p class="small">6º Decanato · Arquidiocesis Primada de México</p>
+        </div>
+        <div>
+          <strong>Contacto</strong>
+          <p class="small">pastoraljuvenilvocacional3z6d@gmail.com</p>
+          <p class="small">Calle 5 #447, Cuchilla Pantitlán, Venustiano Carranza, CDMX</p>
+        </div>
+        <div>
+          <strong>Síguenos</strong>
+          <p><a class="small" href="#" target="_blank">Instagram</a> · <a class="small" href="#" target="_blank">Facebook</a></p>
+        </div>
+      </div>
+      <p class="small" style="margin-top:12px;color:rgba(255,255,255,0.45)">© <span id="year"></span> Pastoral Juvenil Vocacional III · Hecho con ♥</p>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <img alt="Ampliar imagen" id="lightbox-img" src="">
+  </div>
+
+  <!-- Chatbot button + window -->
+  <button id="chatbot" class="chatbot" aria-label="Abrir chat">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712116.png" alt="Icono chatbot">
+  </button>
+
+  <div id="chatWindow" class="chat-window" role="dialog" aria-modal="false" aria-hidden="true">
+    <div class="chat-header">
+      <div>Asistente 🤖</div>
+      <button id="chatClose" aria-label="Cerrar chat" style="background:transparent;border:0;color:#fff;font-weight:700;cursor:pointer">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody" aria-live="polite">
+      <p><strong>Asistente:</strong> ¡Hola! Soy tu asistente virtual. Pregunta por: "¿Cuándo es el JOJUVO?", "¿Dónde será?", "¿Dónde compro boletos?" o escribe tu duda.</p>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" aria-label="Mensaje al asistente" placeholder="Escribe tu mensaje...">
+      <button id="sendChat">Enviar</button>
     </div>
   </div>
-  <nav>
-    <a href="#acerca">Acerca</a>
-    <a href="#parroquias">Parroquias</a>
-    <a href="#jojuvo">JOJUVO</a>
-    <a href="#noticias">Noticias</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
 
-<main>
-<section class="poster-hero">
-  <img src="Poster3pmT.jpg" alt="Poster Oficial JOJUVO">
-  <img src="rifa.jpg" alt="Rifa" style="width:45%;max-width:500px;border-radius:16px;">
-</section>
+  <script>
+    // Fecha actual (footer)
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<div class="floating" style="width:80px;height:80px;top:150px;left:50px;"></div>
-<div class="floating" style="width:50px;height:50px;top:400px;left:200px;"></div>
-<div class="floating" style="width:100px;height:100px;top:600px;left:700px;"></div>
+    // COUNTDOWN (calculado hasta fecha del JOJUVO)
+    (function countdown(){
+      const el = document.getElementById('countdown');
+      const end = new Date("2025-11-08T00:00:00").getTime();
+      function tick(){
+        const now = Date.now();
+        const diff = end - now;
+        if(diff <= 0){ el.textContent = "¡El JOJUVO está en curso o ya comenzó!"; return; }
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        const m = Math.floor((diff%(1000*60*60))/(1000*60));
+        const s = Math.floor((diff%(1000*60))/1000);
+        el.textContent = `Faltan ${d}d ${h}h ${m}m ${s}s`;
+      }
+      tick();
+      setInterval(tick,1000);
+    })();
 
-<section class="card fade-up" id="jojuvo">
-<h2>JOJUVO — Evento Especial</h2>
-<p class="small">Los JOJUVOS son Jornadas Juveniles Vocacionales.</p>
-<div class="countdown" id="countdown"></div>
-<p style="text-align:center;margin-top:12px;"><a href="https://forms.gle/bakFvfs8bkn7wEGQ6" class="btn">Inscríbete pronto, cupo limitado</a></p>
-</section>
+    // CONTACT FORM (simulado)
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = this.nombre?.value || document.getElementById('nombre').value;
+      const result = document.getElementById('form-result');
+      result.textContent = `Gracias ${name}. Mensaje recibido (simulado).`;
+      this.reset();
+      setTimeout(()=> result.textContent = '', 6000);
+    });
 
-<section class="card fade-up" id="parroquias">
-<h2>Parroquias del Decanato</h2>
-<ul class="parroquias">
-<li>Nuestra Señora del Pueblito</li>
-<li>Nuestra Señora de la Consolación</li>
-<li>Nuestra Señora del Carmen</li>
-<li>San José Obrero y Corazón de María</li>
-<li>Rectoría de Nuestra Señora de Guadalupe</li>
-<li>Nuestra Señora del Perpetuo Socorro</li>
-<li>Sagrado Corazón de Jesús</li>
-<li>Sagrados Corazones</li>
-<li>San Isidro</li>
-<li>Santísima Trinidad</li>
-<li>Sagrada familia y Ntra. Sra. De Gpe.</li>
-</ul>
+    // GALLERY LIGHTBOX
+    const gallery = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-<h3>Mapa del lugar del JOJUVO</h3>
-<div class="map-container">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1000000000005!2d-99.109567!3d19.418234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ffbfa9876543%3A0x123456789abcdef0!2sCalle%205%20447%2C%20Cuchilla%20Pantitl%C3%A1n%2C%20Venustiano%20Carranza%2C%2015610%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1696070000000!5m2!1ses-419!2smx" 
-    allowfullscreen 
-    loading="lazy">
-  </iframe>
-</div>
-</section>
+    if(gallery){
+      gallery.addEventListener('click', e=>{
+        const img = e.target.closest('img');
+        if(!img) return;
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+        lightbox.setAttribute('aria-hidden','false');
+      });
+    }
+    lightbox.addEventListener('click', ()=> {
+      lightbox.classList.remove('show');
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImg.src = '';
+    });
+    document.addEventListener('keydown', (e)=> {
+      if(e.key === 'Escape'){ lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden','true'); }
+    });
 
-<section class="card fade-up" id="noticias">
-<h2>Noticias</h2>
-<div class="news-periodico">
-<h3>Canonización de San Carlo Acutis y Piergiorgio</h3>
-<p>¡Grandes noticias! Se han canonizado a San Carlo Acutis y Piergiorgio. Tendremos reliquias de ambos en nuestro próximo JOJUVO.</p>
-</div>
-</section>
+    // CHATBOT: abrir/cerrar, respuestas simples, ESC para cerrar
+    const chatbotBtn = document.getElementById('chatbot');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatClose = document.getElementById('chatClose');
+    const chatBody = document.getElementById('chatBody');
+    const chatInput = document.getElementById('chatInput');
+    const sendChat = document.getElementById('sendChat');
 
-<section class="card fade-up" id="socials">
-<h2>Síguenos</h2>
-<div class="socials">
-<a href="https://www.instagram.com/" target="_blank">Instagram</a>
-<a href="https://www.facebook.com/" target="_blank">Facebook</a>
-</div>
-</section>
+    function openChat(){
+      chatWindow.classList.add('show');
+      chatWindow.setAttribute('aria-hidden','false');
+      chatWindow.setAttribute('aria-modal','true');
+      chatInput.focus();
+    }
+    function closeChat(){
+      chatWindow.classList.remove('show');
+      chatWindow.setAttribute('aria-hidden','true');
+      chatWindow.setAttribute('aria-modal','false');
+      chatbotBtn.focus();
+    }
+    chatbotBtn.addEventListener('click', ()=> {
+      if(chatWindow.classList.contains('show')) closeChat(); else openChat();
+    });
+    chatClose.addEventListener('click', closeChat);
+    document.addEventListener('keydown', e=> { if(e.key === 'Escape') closeChat(); });
 
-<section class="card fade-up" id="contacto">
-<h2>Contacto</h2>
-<p class="small"><strong>Pastoral Juvenil</strong> — correo: pastoraljuvenilvocacional3z6d@gmail.com</p>
-<form id="contact-form">
-<label class="small">Nombre</label>
-<input name="nombre" required />
-<label class="small" style="margin-top:6px">Correo</label>
-<input name="email" type="email" required />
-<label class="small" style="margin-top:6px">Mensaje</label>
-<textarea name="mensaje" rows="4" required></textarea>
-<div style="margin-top:10px"><button class="btn" type="submit">Enviar</button></div>
-<div id="form-result" class="small" style="margin-top:8px"></div>
-</form>
-</section>
+    // Basic reply engine (pattern matching)
+    function appendUser(text){
+      const p = document.createElement('p'); p.innerHTML = `<strong>Tú:</strong> ${escapeHtml(text)}`; chatBody.appendChild(p);
+    }
+    function appendAssist(html){
+      const p = document.createElement('p'); p.innerHTML = `<strong>Asistente:</strong> ${html}`; chatBody.appendChild(p);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-</div>
+    sendChat.addEventListener('click', ()=> handleMsg());
+    chatInput.addEventListener('keydown', (e)=> { if(e.key === 'Enter') handleMsg(); });
 
-<!-- Chatbot -->
-<img src="https://cdn-icons-png.flaticon.com/512/4712/4712116.png" class="chatbot" id="chatbotIcon" alt="Chatbot" title="Haz clic para abrir el chat" style="display:block;">
+    function handleMsg(){
+      const msg = (chatInput.value || '').trim();
+      if(!msg) return;
+      appendUser(msg);
+      chatInput.value = '';
+      const q = msg.toLowerCase();
 
-<div class="chat-window" id="chatWindow">
-<div class="chat-header">Asistente 🤖</div>
-<div class="chat-body" id="chatBody">
-<p>¡Hola! Soy tu asistente virtual. Haz clic en las opciones o escribe tu pregunta.</p>
-</div>
-<div class="chat-input">
-<input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
-<button id="sendChat">Enviar</button>
-</div>
-</div>
+      // Replies (expandible)
+      if(q.includes('cuándo') && q.includes('jojuvo')) {
+        appendAssist('El JOJUVO será el <strong>8 de noviembre de 2025</strong>.');
+      } else if(q.includes('dónde') && q.includes('jojuvo')) {
+        appendAssist('Se llevará a cabo en la parroquia: <strong>Calle 5 #447, Cuchilla Pantitlán, Venustiano Carranza, Ciudad de México, CDMX</strong>.');
+      } else if(q.includes('boleto') || q.includes('venta')) {
+        appendAssist('Los boletos se venden <strong>directamente en la parroquia</strong>. No hay venta digital por el momento.');
+      } else if(q.includes('parroquias') || q.includes('parroquia')) {
+        appendAssist('Lista de parroquias: Nuestra Señora del Pueblito; Nuestra Señora de la Consolación; Nuestra Señora del Carmen; San José Obrero; Rectoría de Ntra. Sra. de Guadalupe; Ntra. Sra. del Perpetuo Socorro; Sagrado Corazón; Sagrados Corazones; San Isidro; Santísima Trinidad; Sagrada Familia.');
+      } else if(q.includes('reliquia')) {
+        appendAssist('Habrá reliquias de San Carlo Acutis y Piergiorgio. Consulta horarios en la sección de noticias o escríbenos al correo <strong>pastoraljuvenilvocacional3z6d@gmail.com</strong>.');
+      } else {
+        appendAssist('No estoy seguro de eso. Por favor escribe tu duda al correo <strong>pastoraljuvenilvocacional3z6d@gmail.com</strong> y te responderemos lo antes posible.');
+      }
+    }
 
-<script>
-// Poster parallax
-const poster=document.querySelector('.poster-hero img');
-window.addEventListener('scroll',()=>{poster.style.transform=`translateY(${window.scrollY*0.3}px)`;});
+    // OPTIONAL: Small UX improvement - persist chat history in sessionStorage
+    (function restoreChat(){
+      try{
+        const cached = sessionStorage.getItem('pjv_chat');
+        if(cached){ chatBody.innerHTML = cached; }
+        const observer = new MutationObserver(()=> sessionStorage.setItem('pjv_chat', chatBody.innerHTML));
+        observer.observe(chatBody, {childList:true, subtree:true});
+      }catch(e){}
+    })();
 
-// Countdown
-function countdown(){
-  const endDate=new Date("2025-11-08T00:00:00").getTime();
-  const now=new Date().getTime();
-  const diff=endDate-now;
-  if(diff<0){document.getElementById('countdown').textContent="¡El JOJUVO comenzó!";return;}
-  const days=Math.floor(diff/(1000*60*60*24));
-  const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
-  const seconds=Math.floor((diff%(1000*60))/1000);
-  document.getElementById('countdown').textContent=`Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-setInterval(countdown,1000);
-countdown();
-
-// Contact form
-document.getElementById('contact-form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const name=this.nombre.value;
-  document.getElementById('form-result').textContent='Gracias '+name+'. Mensaje recibido (simulado).';
-  this.reset();
-});
-
-// Scroll animations
-const faders=document.querySelectorAll('.fade-up');
-const appearOptions={threshold:0.1};
-const appearOnScroll=new IntersectionObserver(function(entries,observer){
-  entries.forEach(entry=>{
-    if(!entry.isIntersecting) return;
-    entry.target.classList.add('show');
-    observer.unobserve(entry.target);
-  });
-},appearOptions);
-faders.forEach(fader=>{appearOnScroll.observe(fader);});
-
-// Chatbot funcionalidad
-const chatbotIcon = document.getElementById('chatbotIcon');
-const chatWindow = document.getElementById('chatWindow');
-const chatBody = document.getElementById('chatBody');
-const chatInput = document.getElementById('chatInput');
-
-chatbotIcon.onclick = () => {
-  chatWindow.style.display = chatWindow.style.display === "flex" ? "none" : "flex";
-};
-
-document.getElementById('sendChat').onclick = () => {
-  const msg = chatInput.value.trim();
-  if (!msg) return;
-  chatBody.innerHTML += `<p><strong>Tú:</strong> ${msg}</p>`;
-  chatInput.value = "";
-
-  let reply = "Por favor envía tu duda al correo: <strong>pastoraljuvenilvocacional3z6d@gmail.com</strong> y te responderemos.";
-  const msgLower = msg.toLowerCase();
-
-  if(msgLower.includes("cuándo") && msgLower.includes("jojuvo")) reply = "El JOJUVO será el 8 de noviembre de 2025.";
-  else if(msgLower.includes("dónde") && msgLower.includes("jojuvo")) reply = "Se llevará a cabo en la parroquia: Calle 5 #447, Cuchilla Pantitlán, Venustiano Carranza, Ciudad de México, CDMX.";
-  else if(msgLower.includes("boleto") || msgLower.includes("venta")) reply = "Los boletos se venden directamente en la parroquia, no hay venta digital por el momento.";
-  else if(msgLower.includes("parroquias")) reply = "Las parroquias del decanato son: Nuestra Señora del Pueblito, Nuestra Señora de la Consolación, Nuestra Señora del Carmen, San José Obrero y Corazón de María, Rectoría de Nuestra Señora de Guadalupe, Nuestra Señora del Perpetuo Socorro, Sagrado Corazón de Jesús, Sagrados Corazones, San Isidro, Santísima Trinidad, Sagrada Familia y Nuestra Señora de Guadalupe.";
-
-  chatBody.innerHTML += `<p><strong>Asistente:</strong> ${reply}</p>`;
-  chatBody.scrollTop = chatBody.scrollHeight;
-};
-</script>
+    // Accessibility: ensure inputs have labels (already), small helpers...
+  </script>
 </body>
 </html>
-
